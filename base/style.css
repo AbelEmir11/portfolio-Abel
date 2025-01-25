@@ -1,0 +1,57 @@
+header {
+    background: linear-gradient(135deg, #32455a, #34495e); /* Fondo degradado */
+    color: #ffffff; /* Asegúrate de que el texto sea legible */
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif; 
+  }
+
+
+  /* Sobre mí */
+#sobre-mi {
+    background-color: #b3bbc0;
+    color: #333;
+  }
+  
+  #sobre-mi h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  #sobre-mi p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  #sobre-mi .list-inline-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  
+  #sobre-mi .list-inline-item i {
+    margin-right: 0.5rem;
+  }
+  
+  /* Proyectos */
+#proyectos {
+    background-color: #5888a3;
+    color: #333;
+  }
+  
+  #proyectos h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  #proyectos .card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #proyectos .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
