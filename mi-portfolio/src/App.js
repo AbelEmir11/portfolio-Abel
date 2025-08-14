@@ -43,12 +43,12 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
       {/* Navbar */}
-      <nav className="fixed w-full z-50">
+      <nav className="fixed w-full z-30">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 100, x: 150 }}
+              animate={{ opacity: 2, x: 0 }}
               className="text-2xl font-bold text-white"
             >
               Abel Alvarado Dev
@@ -209,7 +209,7 @@ const HomePage = () => {
               Conversemos sobre tu proyecto. Primera consulta completamente gratis.
             </p>
             <a 
-              href="https://wa.me/5492617XXXXXX" 
+              href="https://wa.me/2613670507" 
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp-large"
@@ -224,7 +224,7 @@ const HomePage = () => {
       <footer>
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-gray-400">
-            © 2025 Abel Dev - Desarrollo web para negocios locales en Mendoza, Argentina
+            © 2025 Abel Alvarado-Software Dev - Desarrollo web para negocios locales en Mendoza, Argentina
           </p>
         </div>
       </footer>
