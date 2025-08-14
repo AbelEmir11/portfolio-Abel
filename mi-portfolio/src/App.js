@@ -105,7 +105,7 @@ const HomePage = () => {
                 Ver mis proyectos
               </a>
               <a 
-                href="https://wa.me/5492617XXXXXX" 
+                href="https://wa.me/2613670507" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
