@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './App.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
 
 // Componente de la página principal
 const HomePage = () => {
@@ -10,7 +13,7 @@ const HomePage = () => {
       id: 'tienda',
       title: 'Tienda de Ropa Online',
       description: 'E-commerce completo para boutique local',
-      image: '/api/placeholder/400/250',
+      image: '/screen.png',
       tags: ['React', 'WhatsApp API', 'Responsive'],
       route: '/tienda'
     },
@@ -26,7 +29,7 @@ const HomePage = () => {
       id: 'construccion',
       title: 'PYME Construcción',
       description: 'Sitio corporativo para empresa constructora',
-      image: '/api/placeholder/400/250',
+      image: '/screen.png',
       tags: ['Corporate', 'Portfolio', 'Contacto'],
       route: '/construccion'
     },
@@ -233,7 +236,7 @@ const HomePage = () => {
 };
 
 // Componente temporal para las páginas de proyectos
-const ProjectTemplate = ({ title, problem, solution, result, liveUrl }) => {
+const ProjectTemplate = ({ title,image,image2, image3 ,problem, solution, result, liveUrl }) => {
   return (
     <div className="min-h-screen">
       {/* Navbar */}
@@ -272,14 +275,42 @@ const ProjectTemplate = ({ title, problem, solution, result, liveUrl }) => {
           </motion.div>
 
           {/* Screenshot grande */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="h-96 gradient-bg mb-16 flex items-center justify-center rounded-2xl"
-          >
-            <span className="text-white text-2xl font-semibold">Screenshot del proyecto</span>
-          </motion.div>
+
+       <motion.div 
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2 }}
+  className="h-96 w-full gradient-bg mb-16 rounded-2xl overflow-hidden"
+>
+  <Swiper
+    modules={[Navigation, Pagination, Autoplay]}
+    navigation
+    pagination={{ clickable: true }}
+    autoplay={{ delay: 3000 }}
+    loop={true}
+    className="h-full w-full"
+  >
+    {[image, image2, image3].map((img, i) => (
+      <SwiperSlide 
+      key={i}
+        className="!h-full flex items-center justify-center bg-black"
+      >
+        <img
+          src={img} 
+          alt={`screenshot ${i + 1}`} 
+          className="max-w-full max-h-full"
+           style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain"     // 👈 fuerza 'contain' aunque otra regla lo pise
+          }}
+        />
+      </SwiperSlide>
+    ))}
+  </Swiper>
+  
+</motion.div>
+
 
           {/* Problema - Solución - Resultado */}
           <motion.div 
@@ -318,7 +349,7 @@ const ProjectTemplate = ({ title, problem, solution, result, liveUrl }) => {
               Conversemos sobre cómo puedo ayudar a hacer crecer tu empresa
             </p>
             <a 
-              href="https://wa.me/5492617XXXXXX" 
+              href="https://wa.me/2613670507" 
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp-large"
@@ -336,6 +367,7 @@ const ProjectTemplate = ({ title, problem, solution, result, liveUrl }) => {
 const TiendaProject = () => (
   <ProjectTemplate 
     title="Tienda de Ropa Online"
+    image= "/tienda.png"
     problem="La boutique 'Elegancia' perdía ventas porque los clientes no podían ver el catálogo completo. Solo vendían presencialmente y perdían clientes que preferían comprar online."
     solution="Desarrollé un e-commerce completo con catálogo visual, integración a WhatsApp Business, carrito de compras, sistema de tallas y galería de fotos profesional."
     result="🚀 +150% en ventas mensuales. 40+ consultas diarias por WhatsApp. Cliente expandió el negocio a delivery en toda Mendoza."
@@ -346,6 +378,7 @@ const TiendaProject = () => (
 const TurismoProject = () => (
   <ProjectTemplate 
     title="Agencia de Turismo Mendoza"
+    image= "/turismo.png"
     problem="'Aventuras Cuyanas' dependía solo del boca a boca y perdía turistas que buscaban información online antes de viajar. No tenían presencia digital."
     solution="Creé un sitio web con catálogo de excursiones, formularios de reserva, integración con Google Maps, galería de fotos y testimonios de clientes."
     result="🌟 +200% en consultas mensuales. Temporada alta con reservas completas. Posicionamiento #1 en 'turismo mendoza' en Google."
@@ -356,16 +389,20 @@ const TurismoProject = () => (
 const ConstruccionProject = () => (
   <ProjectTemplate 
     title="Constructora San Rafael"
+    image= "/screen.png"
+    image2="/contrack2.png"
+    image3="/contrack3.png"
     problem="'Construcciones del Sur' tenía excelentes trabajos pero no sabían cómo mostrarlos. Perdían clientes frente a competidores con mejor presencia online."
     solution="Desarrollé un sitio corporativo con portfolio de obras, calculadora de presupuestos, formularios de contacto y sección de servicios detallada."
     result="💼 +300% en consultas de obra. 15 proyectos nuevos en 6 meses. Expansión a 3 ciudades de Mendoza por demanda."
-    liveUrl="https://construccion-demo.netlify.app"
+    liveUrl="https://contrack-virid.vercel.app/"
   />
 );
 
 const SistemaProject = () => (
   <ProjectTemplate 
     title="Sistema de Inventario - Ferretería"
+    image= "/inventario.png"
     problem="'Ferretería Central' manejaba inventario en Excel. Perdían horas diarias, tenían stock desactualizado y errores constantes en pedidos."
     solution="Creé un dashboard administrativo con control de stock en tiempo real, alertas de productos agotados, reportes automáticos y sistema de ventas."
     result="⚡ De 3 horas diarias a 15 minutos. 0 errores de stock. +50% eficiencia operativa. ROI recuperado en 2 meses."
