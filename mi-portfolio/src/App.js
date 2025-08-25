@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './App.css';
+import QuienSoyPage from './QuienSoyPage';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
@@ -13,7 +14,7 @@ const HomePage = () => {
       id: 'tienda',
       title: 'Tienda de Ropa Online',
       description: 'E-commerce completo para boutique local',
-      image: '/screen.png',
+      image: '/moda.png',
       tags: ['React', 'WhatsApp API', 'Responsive'],
       route: '/tienda'
     },
@@ -21,7 +22,7 @@ const HomePage = () => {
       id: 'turismo',
       title: 'Agencia de Turismo',
       description: 'Sitio web con catálogo de paquetes turísticos',
-      image: '/api/placeholder/400/250',
+      image: '/viaje.png',
       tags: ['Landing Page', 'Formularios', 'Maps'],
       route: '/turismo'
     },
@@ -29,7 +30,7 @@ const HomePage = () => {
       id: 'construccion',
       title: 'PYME Construcción',
       description: 'Sitio corporativo para empresa constructora',
-      image: '/screen.png',
+      image: '/contrack-logo1.png',
       tags: ['Corporate', 'Portfolio', 'Contacto'],
       route: '/construccion'
     },
@@ -37,7 +38,7 @@ const HomePage = () => {
       id: 'sistema',
       title: 'Sistema de Inventario',
       description: 'Dashboard administrativo interno',
-      image: '/api/placeholder/400/250',
+      image: '/inventario.png',
       tags: ['Dashboard', 'CRUD', 'Admin Panel'],
       route: '/sistema'
     }
@@ -45,8 +46,8 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Navbar */}
-      <nav className="fixed w-full z-30">
+      {/* Navbar 
+     /* <nav className="fixed w-full z-30">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <motion.div 
@@ -68,7 +69,31 @@ const HomePage = () => {
           </div>
         </div>
       </nav>
-
+*/}<nav className="fixed w-full z-30">
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="flex justify-between items-center py-4">
+      <motion.div
+        initial={{ opacity: 100, x: 150 }}
+        animate={{ opacity: 2, x: 0 }}
+        className="text-2xl font-bold"
+      >
+        <Link to="/quien-soy" className="text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer group">
+  <span className="group-hover:hidden">Abel Dev</span>
+  <span className="hidden group-hover:inline">¿Quién soy? →</span>
+</Link>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="flex space-x-6 text-white"
+      >
+        <a href="#inicio">Inicio</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </motion.div>
+    </div>
+  </div>
+</nav>
       {/* Hero Section */}
       <section id="inicio" className="pt-20 pb-20">
         <div className="max-w-7xl mx-auto px-4">
@@ -130,7 +155,7 @@ const HomePage = () => {
             className="grid grid-cols-3 gap-8 text-center"
           >
             <div>
-              <div className="text-4xl font-bold text-purple-400 mb-2">15+</div>
+              <div className="text-4xl font-bold text-purple-400 mb-2">10+</div>
               <div className="text-gray-300">Proyectos completados</div>
             </div>
             <div>
@@ -172,7 +197,12 @@ const HomePage = () => {
                 className="project-card"
               >
                 <div className="gradient-bg-project">
-                  <span>Screenshot del proyecto</span>
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-48 object-cover rounded-t-lg"
+                  />
+                 
                 </div>
                 <div className="px-4 py-8">
                   <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
@@ -406,7 +436,7 @@ const SistemaProject = () => (
     problem="'Ferretería Central' manejaba inventario en Excel. Perdían horas diarias, tenían stock desactualizado y errores constantes en pedidos."
     solution="Creé un dashboard administrativo con control de stock en tiempo real, alertas de productos agotados, reportes automáticos y sistema de ventas."
     result="⚡ De 3 horas diarias a 15 minutos. 0 errores de stock. +50% eficiencia operativa. ROI recuperado en 2 meses."
-    liveUrl="https://inventario-demo.netlify.app"
+    liveUrl="https://colorlib.com/polygon/gentelella/index.html"
   />
 );
 
@@ -416,6 +446,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/quien-soy" element={<QuienSoyPage />} />
         <Route path="/tienda" element={<TiendaProject />} />
         <Route path="/turismo" element={<TurismoProject />} />
         <Route path="/construccion" element={<ConstruccionProject />} />
