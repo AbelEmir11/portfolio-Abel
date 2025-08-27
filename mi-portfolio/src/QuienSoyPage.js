@@ -195,14 +195,11 @@ const QuienSoyPage = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Hola, soy <span className="gradient-text">Abel Alvarado</span>
             </h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto"
-            >
+            <h1>
+            
               Desarrollador Full Stack apasionado por crear soluciones digitales que transforman negocios locales en Mendoza, Argentina.
-            </motion.p>
+         
+            </h1>
           </motion.div>
 
   
