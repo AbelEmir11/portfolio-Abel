@@ -113,18 +113,51 @@ const QuienSoyPage = () => {
       .tech-icon-hover:hover {
         transform: scale(1.2) rotate(10deg);
       }
+
+      /* SOLUCIÓN PARA EL NAVBAR FIXED */
+      .fixed-navbar {
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .fixed-navbar.scrolled {
+        background: rgba(15, 23, 42, 0.95);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Smooth scroll para los links del navbar */
+      html {
+        scroll-padding-top: 80px;
+      }
     `;
     document.head.appendChild(style);
     
+    // Script para cambiar el estilo del navbar al hacer scroll
+    const handleScroll = () => {
+      const navbar = document.querySelector('.fixed-navbar');
+      if (navbar) {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
     return () => {
       document.head.removeChild(style);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <div className="min-h-screen">
-      {/* Navbar */}
-      <nav className="fixed w-full z-50">
+      {/* Navbar Mejorado */}
+      <nav className="fixed w-full z-50 fixed-navbar">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <motion.div
@@ -150,8 +183,8 @@ const QuienSoyPage = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-16">
+      {/* Hero Section - Aumenté el padding-top */}
+      <section className="pt-32 pb-16 md:pt-40">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
@@ -159,92 +192,102 @@ const QuienSoyPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Hola, soy <span className="gradient-text">Abel Alvarado</span>
             </h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-xl text-gray-300 max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto"
             >
               Desarrollador Full Stack apasionado por crear soluciones digitales que transforman negocios locales en Mendoza, Argentina.
             </motion.p>
           </motion.div>
 
-          {/* Profile Section */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="profile-section p-8 mb-16"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="w-64 h-64 mx-auto gradient-bg rounded-full flex items-center justify-center text-6xl font-bold text-white animate-float shadow-2xl">
-                  AA
-                </div>
-              </div>
-              <div>
-                <motion.h2 
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="text-3xl font-bold text-white mb-6"
-                >
-                  Mi Historia
-                </motion.h2>
-                <motion.p 
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="text-gray-300 mb-4 leading-relaxed"
-                >
-                  Comencé en el mundo de la programación hace más de 3 años, motivado por la idea de ayudar a negocios locales a digitalizarse y crecer. 
-                </motion.p>
-                <motion.p 
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="text-gray-300 mb-4 leading-relaxed"
-                >
-                  Me especializo en crear sitios web y sistemas que realmente resuelven problemas. No me conformo con hacer "páginas bonitas" - desarrollo soluciones que aumentan ventas, mejoran procesos y conectan negocios con sus clientes.
-                </motion.p>
-                <motion.p 
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 }}
-                  className="text-gray-300 mb-6 leading-relaxed"
-                >
-                  Vivo en Mendoza y conozco las necesidades específicas de los negocios locales. Por eso cada proyecto que desarrollo está pensado para el mercado argentino.
-                </motion.p>
-                <motion.div 
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1 }}
-                  className="flex gap-4 flex-wrap"
-                >
-                  <a 
-                    href="https://wa.me/2613670507" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-whatsapp"
-                  >
-                    📱 Conversemos
-                  </a>
-                  <Link 
-                    to="/#proyectos" 
-                    className="btn-primary"
-                  >
-                    Ver mis trabajos
-                  </Link>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+  
+{/* Profile Section - Minimalista con foto */}
+<motion.div 
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.4 }}
+  className="profile-section p-6 md:p-8 mb-16"
+>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+    
+    {/* FOTO - siempre a la izquierda */}
+    <div className="order-1 flex justify-center md:justify-start">
+      <div className="relative w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-white/30 shadow-lg">
+        <img 
+          src="/yo.png" 
+          alt="Abel Alvarado"
+          className="w-full h-full object-cover"
+        />
+      </div>
+    </div>
 
+    {/* TEXTO - siempre a la derecha */}
+    <div className="order-2">
+      <motion.h2 
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        className="text-2xl md:text-3xl font-bold text-white mb-6"
+      >
+        Mi Historia
+      </motion.h2>
+      <motion.p 
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+        className="text-gray-300 mb-4 leading-relaxed"
+      >
+        Comencé en el mundo de la programación hace más de 3 años, motivado por la idea de ayudar a negocios locales a digitalizarse y crecer. 
+      </motion.p>
+      <motion.p 
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="text-gray-300 mb-4 leading-relaxed"
+      >
+        Me especializo en crear sitios web y sistemas que realmente resuelven problemas. No me conformo con hacer "páginas bonitas" - desarrollo soluciones que aumentan ventas, mejoran procesos y conectan negocios con sus clientes.
+      </motion.p>
+      <motion.p 
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.9 }}
+        className="text-gray-300 mb-6 leading-relaxed"
+      >
+        Vivo en Mendoza y conozco las necesidades específicas de los negocios locales. Por eso cada proyecto que desarrollo está pensado para el mercado argentino.
+      </motion.p>
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1 }}
+        className="flex gap-4 flex-wrap"
+      >
+        <a 
+          href="https://wa.me/2613670507" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-whatsapp"
+        >
+          📱 Conversemos
+        </a>
+        <Link 
+          to="/#proyectos" 
+          className="btn-primary"
+        >
+          Ver mis trabajos
+        </Link>
+      </motion.div>
+    </div>
+  </div>
+</motion.div>
+        </div>
+      </section>  
+
+      {/* Resto del código permanece igual... */}
       {/* Tecnologías */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">

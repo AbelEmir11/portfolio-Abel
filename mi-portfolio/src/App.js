@@ -116,7 +116,7 @@ const HomePage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl text-gray-300 mb-8"
             >
-              Desarrollador Full Stack especializado en soluciones web para negocios locales en Mendoza
+              Desarrollador Full Stack especializado en soluciones web para negocios locales
             </motion.p>
             
             <motion.div 
@@ -409,22 +409,24 @@ const TurismoProject = () => (
   <ProjectTemplate 
     title="Agencia de Turismo Mendoza"
     image= "/turismo.png"
+    image2="/index-viaje.png"
+    image3= "tursmo3.png"
     problem="'Aventuras Cuyanas' dependía solo del boca a boca y perdía turistas que buscaban información online antes de viajar. No tenían presencia digital."
     solution="Creé un sitio web con catálogo de excursiones, formularios de reserva, integración con Google Maps, galería de fotos y testimonios de clientes."
     result="🌟 +200% en consultas mensuales. Temporada alta con reservas completas. Posicionamiento #1 en 'turismo mendoza' en Google."
-    liveUrl="https://turismo-demo.netlify.app"
+    liveUrl="https://abelemir11.github.io/Viajero/"
   />
 );
 
 const ConstruccionProject = () => (
   <ProjectTemplate 
-    title="Constructora San Rafael"
+    title="Contrack - Obras y Servicios"
     image= "/screen.png"
     image2="/contrack2.png"
     image3="/contrack3.png"
-    problem="'Construcciones del Sur' tenía excelentes trabajos pero no sabían cómo mostrarlos. Perdían clientes frente a competidores con mejor presencia online."
+    problem="'Contrack' tenía excelentes trabajos pero no sabían cómo mostrarlos. Perdían clientes frente a competidores con mejor presencia online."
     solution="Desarrollé un sitio corporativo con portfolio de obras, calculadora de presupuestos, formularios de contacto y sección de servicios detallada."
-    result="💼 +300% en consultas de obra. 15 proyectos nuevos en 6 meses. Expansión a 3 ciudades de Mendoza por demanda."
+    result="💼 +300% en consultas de obra. 15 proyectos nuevos en 6 meses. Expansión por toda Mendoza y provincias vecinas."
     liveUrl="https://contrack-virid.vercel.app/"
   />
 );
@@ -433,6 +435,8 @@ const SistemaProject = () => (
   <ProjectTemplate 
     title="Sistema de Inventario - Ferretería"
     image= "/inventario.png"
+    image2="dashboard.png"
+    image3="dash.png"
     problem="'Ferretería Central' manejaba inventario en Excel. Perdían horas diarias, tenían stock desactualizado y errores constantes en pedidos."
     solution="Creé un dashboard administrativo con control de stock en tiempo real, alertas de productos agotados, reportes automáticos y sistema de ventas."
     result="⚡ De 3 horas diarias a 15 minutos. 0 errores de stock. +50% eficiencia operativa. ROI recuperado en 2 meses."
