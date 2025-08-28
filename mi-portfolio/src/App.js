@@ -69,7 +69,7 @@ const HomePage = () => {
           </div>
         </div>
       </nav>
-*/}<nav className="fixed w-full z-30">
+*/}<nav className="fixed-navbar w-full z-30 bg-black">
   <div className="max-w-7xl mx-auto px-4">
     <div className="flex justify-between items-center py-4">
       <motion.div
@@ -95,7 +95,7 @@ const HomePage = () => {
   </div>
 </nav>
       {/* Hero Section */}
-      <section id="inicio" className="pt-20 pb-20">
+      <section id="inicio" className="pt-20 md:pt-28">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
             <motion.h1 

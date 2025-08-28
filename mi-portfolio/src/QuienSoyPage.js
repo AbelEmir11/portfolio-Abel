@@ -157,7 +157,7 @@ const QuienSoyPage = () => {
   return (
     <div className="min-h-screen">
       {/* Navbar Mejorado */}
-      <nav className="fixed w-full z-50 fixed-navbar">
+   <nav className="sticky top-0 w-full z-50 fixed-navbar">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <motion.div
@@ -347,7 +347,7 @@ const QuienSoyPage = () => {
               {
                 emoji: '🎯',
                 title: 'Orientado a Resultados',
-                desc: 'No hago sitios web "bonitos". Desarrollo soluciones que aumentan ventas, mejoran procesos y hacen crecer negocios.',
+                desc: 'No solo hago sitios web "bonitos". Desarrollo soluciones que aumentan ventas, mejoran procesos y hacen crecer negocios.',
                 delay: 0
               },
               {
@@ -359,7 +359,7 @@ const QuienSoyPage = () => {
               {
                 emoji: '🤝',
                 title: 'Soporte Continuo',
-                desc: 'No desaparezco después de entregar. Ofrezco soporte, actualizaciones y estoy disponible para hacer crecer tu proyecto.',
+                desc: 'Ofrezco soporte, actualizaciones y estoy disponible para hacer crecer tu proyecto.',
                 delay: 0.4
               }
             ].map((item, index) => (
@@ -491,7 +491,7 @@ const QuienSoyPage = () => {
               viewport={{ once: true }}
               className="text-gray-400 mt-6"
             >
-              📍 Mendoza, Argentina • Primera consulta gratis
+          
             </motion.p>
           </motion.div>
         </div>
