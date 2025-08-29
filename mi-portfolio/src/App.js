@@ -46,30 +46,8 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Navbar 
-     /* <nav className="fixed w-full z-30">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
-            <motion.div 
-              initial={{ opacity: 100, x: 150 }}
-              animate={{ opacity: 2, x: 0 }}
-              className="text-2xl font-bold text-white"
-            >
-              Abel Alvarado Dev
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex space-x-6 text-white"
-            >
-              <a href="#inicio">Inicio</a>
-              <a href="#proyectos">Proyectos</a>
-              <a href="#contacto">Contacto</a>
-            </motion.div>
-          </div>
-        </div>
-      </nav>
-*/}<nav className="fixed-navbar w-full z-30 bg-black">
+    
+<nav className="fixed-navbar w-full z-30 bg-black">
   <div className="max-w-7xl mx-auto px-4">
     <div className="flex justify-between items-center py-4">
       <motion.div

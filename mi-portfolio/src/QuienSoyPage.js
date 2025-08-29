@@ -114,43 +114,13 @@ const QuienSoyPage = () => {
         transform: scale(1.2) rotate(10deg);
       }
 
-      /* SOLUCIÓN PARA EL NAVBAR FIXED */
-      .fixed-navbar {
-        background: rgba(15, 23, 42, 0.9);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-      }
-      
-      .fixed-navbar.scrolled {
-        background: rgba(15, 23, 42, 0.95);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      }
-
-      /* Smooth scroll para los links del navbar */
-      html {
-        scroll-padding-top: 80px;
-      }
+      /
     `;
     document.head.appendChild(style);
-    
-    // Script para cambiar el estilo del navbar al hacer scroll
-    const handleScroll = () => {
-      const navbar = document.querySelector('.fixed-navbar');
-      if (navbar) {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    
+   
     return () => {
       document.head.removeChild(style);
-      window.removeEventListener('scroll', handleScroll);
+   
     };
   }, []);
 
@@ -161,9 +131,9 @@ const QuienSoyPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 100, x: 150 }}
+              animate={{ opacity: 2, x: 0 }}
+             className="text-2xl font-bold"
             >
               <Link to="/" className="text-2xl font-bold text-white hover:text-blue-400 transition-colors duration-300">
                 ← Abel Alvarado Dev
@@ -184,7 +154,7 @@ const QuienSoyPage = () => {
       </nav>
 
       {/* Hero Section - Aumenté el padding-top */}
-      <section className="pt-20 pb-16 md:pt-32">
+      <section className="pt-20 md:pt-28">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
