@@ -157,7 +157,7 @@ const QuienSoyPage = () => {
   return (
     <div className="min-h-screen">
       {/* Navbar Mejorado */}
-   <nav className="sticky top-0 w-full z-50 fixed-navbar">
+   <nav className="fixed-navbar w-full z-30 bg-black">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <motion.div
@@ -184,7 +184,7 @@ const QuienSoyPage = () => {
       </nav>
 
       {/* Hero Section - Aumenté el padding-top */}
-      <section className="pt-32 pb-16 md:pt-40">
+      <section className="pt-20 pb-16 md:pt-32">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
