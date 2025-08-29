@@ -375,11 +375,13 @@ const ProjectTemplate = ({ title,image,image2, image3 ,problem, solution, result
 const TiendaProject = () => (
   <ProjectTemplate 
     title="Tienda de Ropa Online"
-    image= "/tienda.png"
+    image= "/captura.jpg"
+    image2="/tienda.png"
+    image3="/carrito.png"
     problem="La boutique 'Elegancia' perdía ventas porque los clientes no podían ver el catálogo completo. Solo vendían presencialmente y perdían clientes que preferían comprar online."
     solution="Desarrollé un e-commerce completo con catálogo visual, integración a WhatsApp Business, carrito de compras, sistema de tallas y galería de fotos profesional."
     result="🚀 +150% en ventas mensuales. 40+ consultas diarias por WhatsApp. Cliente expandió el negocio a delivery en toda Mendoza."
-    liveUrl="https://tienda-demo.netlify.app"
+    liveUrl="https://abelemir11.github.io/Tienda-online/"
   />
 );
 
